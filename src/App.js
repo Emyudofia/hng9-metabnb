@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './pages/Home';
+import PlaceToStay from './pages/PlaceToStay';
+import NavBar from './components/NavBar';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
+import ConnectModal from './components/ConnectModal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ export function App() {
+	return (
+		<BrowserRouter>
+		<div className="bg-white min-h-screen">
+			<NavBar>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/place-to-stay" element={<PlaceToStay />} />
+					<Route path="*" element={<Home />} />
+				</Routes>
+				<Footer />
+				<ConnectModal />
+			</NavBar>
+		</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;
